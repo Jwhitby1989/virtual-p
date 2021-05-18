@@ -40,4 +40,26 @@ describe("creating a new pet object", () => {
     pet.growUp();
     expect(pet.fitness).toEqual(7);
   });
+
+  it("calling walk should increase the Pet's fitness level by 4", () => {
+    pet.fitness = 5;
+    pet.walk();
+    expect(pet.fitness).toEqual(9);
+  });
+
+  it("A pet's fitness level should never go above 10, so if the fitness level is 9, walk should increase fitness to 10", () => {
+    pet.fitness = 8;
+    pet.walk();
+    expect(pet.fitness).toEqual(10);
+  });
+
+  it("calling feed should decrease the Pet's hunger level by 3.", () => {
+    pet.hunger = 8;
+    pet.feed();
+    expect(pet.hunger).toEqual(5);
+  });
+
+  it("A pet's hunger level should never go below 0.", () => {
+    expect(pet.hunger).toEqual(0);
+  });
 });
