@@ -39,6 +39,13 @@ Pet.prototype = {
       return "I feel great!";
     }
   },
+  isAlive() {
+    if (this.fitness < 0) {
+      return;
+    } else {
+      return;
+    }
+  },
 };
 
 module.exports = Pet;

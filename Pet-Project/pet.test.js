@@ -87,4 +87,21 @@ describe("creating a new pet object", () => {
     pet.checkUp();
     expect().toEqual();
   });
+
+  it("if the pet's fitness is 0 or less, it should return false.", () => {
+    pet.isAlive();
+    expect().toEqual();
+  });
+  it("if the pet's hunger is 10 or more, it should return false.", () => {
+    pet.isAlive();
+    expect().toEqual();
+  });
+  it("if the pet's age is 30 or more, it should return false.", () => {
+    pet.isAlive();
+    expect().toEqual();
+  });
+  it("otherwise it should return true.", () => {
+    pet.isAlive();
+    expect().toEqual();
+  });
 });
