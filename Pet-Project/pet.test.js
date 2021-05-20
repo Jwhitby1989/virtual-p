@@ -98,10 +98,22 @@ describe("creating a new pet object", () => {
   });
   it("if the pet's age is 30 or more, it should return false.", () => {
     pet.isAlive();
-    expect().toEqual();
+    expect(1).toEqual();
   });
   it("otherwise it should return true.", () => {
     pet.isAlive();
-    expect().toEqual();
+    expect(1).toEqual();
+  });
+
+  it("if the pet is not alive, the checkUp function should return 'Your pet is no longer alive :('", () => {
+    expect(1).toEqual();
+  });
+
+  it("if the pet is not alive, the walk, growUp and feed functions should each throw an exception 'Your pet is no longer alive :('.", () => {
+    expect(1).toEqual();
+  });
+
+  it("it the pet is alive, they should behave as before.", () => {
+    expect(1).toEqual();
   });
 });

@@ -40,11 +40,7 @@ Pet.prototype = {
     }
   },
   isAlive() {
-    if (this.fitness < 0) {
-      return;
-    } else {
-      return;
-    }
+    this.isAlive = this.age < 30 && this.hunger < 10 && this.fitness > 0;
   },
 };
 
