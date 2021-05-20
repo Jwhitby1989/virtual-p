@@ -87,33 +87,33 @@ describe("creating a new pet object", () => {
     pet.checkUp();
     expect(pet.checkUp()).toBe("I feel great!");
   });
-  // you will need to set some figures for your fitness then see if pet.isAlive is true or false (what you are expecting it to be)
+
   it("if the pet's fitness is 0 or less, it should return false.", () => {
     pet.fitness = 7;
-    expect(isAlive).toEqual(0);
+    expect(pet.isAlive).toBeFalsy();
   });
-  // same as above but for hunger
-  xit("if the pet's hunger is 10 or more, it should return false.", () => {
+
+  it("if the pet's hunger is 10 or more, it should return false.", () => {
     pet.hunger = 10;
-    pet.isAlive();
-    expect(pet.feed).toBeFalsy();
+    expect(pet.isAlive).toBeFalsy();
   });
 
-  //same
-  xit("if the pet's age is 30 or more, it should return false.", () => {
+  it("if the pet's age is 30 or more, it should return false.", () => {
     pet.age = 10;
-    pet.isAlive();
-    expect(pet.age).toBeFalsy();
+    expect(pet.isAlive).toBeFalsy();
   });
 
-  //same. should your pet be alive if so what should isAlive return - true or false
   xit("otherwise it should return true.", () => {
-    pet.isAlive();
-    expect(1).toEqual();
+    pet.age = 40;
+    expect(pet.isAlive).toBeTruthy();
   });
   // alter check up to add this condition and then read the test which is giving you what you need to check - you are expecting 'Your pet is no longer alive'
-  xit("if the pet is not alive, the checkUp function should return 'Your pet is no longer alive :('", () => {
-    expect(1).toEqual();
+  it("if the pet is not alive, the checkUp function should return 'Your pet is no longer alive :('", () => {
+    pet.age = 40;
+    pet.fitness = 0;
+    pet.hunger = 11;
+    pet.isAlive;
+    expect(pet.checkUp()).toBe("Your pet is no longer alive :(");
   });
   // add the catch to all methods as if the pet is dead then the rest of the function shouldnt be completed
   xit("if the pet is not alive, the walk, growUp and feed functions should each throw an exception 'Your pet is no longer alive :('.", () => {

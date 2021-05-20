@@ -16,8 +16,8 @@ Pet.prototype = {
   */
   get isAlive() {
     this.isAlive = this.age < 30 && this.hunger < 10 && this.fitness > 0;
-    if (this.fitness < 0) {
-      return;
+    if (this.fitness < 0 && this.hunger > 10 && this.age > 30) {
+      return false;
     }
   },
   growUp() {
@@ -47,6 +47,8 @@ Pet.prototype = {
       return "I am hungry";
     } else if (this.fitness <= 3) {
       return "I need a walk";
+    } else if (this.fitness <= 0 && this.age >= 30 && this.hunger >= 10) {
+      return "Your pet is no longer alive :(";
     } else {
       return "I feel great!";
     }
