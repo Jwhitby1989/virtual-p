@@ -9,10 +9,10 @@ function Pet(name) {
 }
 
 Pet.prototype = {
-  /* this should be a getter function have a read up on them but basically they act like a regular static property when you access them i.e pet.isAlive should return a boolean value but that value will change depending on the condition you return inside it. It always needs a return statement like a method does. eg get isAlive() {
-  return  /your conditions here/
-  }
-  so if your fitness or age or hunger levels change then the getter function condition will potentiall change from true-false or vice versa
+  /* a getter should always return something. in this instanct you are setting itself to a condition rather than just returning that condition. also if you think about your use of an if statement
+
+if all those conditions are met it will evalutate to true but if anyone of them dont it will evaluate to false so there is no need for if/else as it can only be one or the other
+
   */
   get isAlive() {
     this.isAlive = this.age < 30 && this.hunger < 10 && this.fitness > 0;
