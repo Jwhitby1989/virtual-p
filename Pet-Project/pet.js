@@ -41,14 +41,14 @@ Pet.prototype = {
   },
   // You might need to alter this - once your tests are correct it should give you an indication as to why and what you'll need to do - plus another check will need to be added to go along with the last few tests - check if the pet is alive before going on to do the rest of the check ups
   checkUp() {
-    if (this.fitness <= 3 && this.hunger >= 5) {
+    if (this.fitness <= 0 && this.age >= 30 && this.hunger >= 10) {
+      return "Your pet is no longer alive :(";
+    } else if (this.fitness <= 3 && this.hunger >= 5) {
       return "I am hungry AND I need a walk";
-    } else if (this.hunger >= 5) {
-      return "I am hungry";
     } else if (this.fitness <= 3) {
       return "I need a walk";
-    } else if (this.fitness <= 0 && this.age >= 30 && this.hunger >= 10) {
-      return "Your pet is no longer alive :(";
+    } else if (this.hunger >= 5) {
+      return "I am hungry";
     } else {
       return "I feel great!";
     }
