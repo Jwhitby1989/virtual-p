@@ -71,6 +71,11 @@ Pet.prototype = {
     });
     return childNames;
   },
+  murderMyChild() {
+    this.children = this.children.filter((child) => {
+      return child.name !== undefined;
+    });
+  },
 };
 
 module.exports = Pet;

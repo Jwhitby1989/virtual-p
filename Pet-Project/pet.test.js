@@ -178,4 +178,21 @@ describe("give birth functionality", () => {
       "rachel",
     ]);
   });
+  it("successfully removes child from array ", () => {
+    parentPet.giveBirth();
+
+    expect(parentPet.children[0].name).toEqual(undefined);
+  });
+  it("successfully removes child from array ", () => {
+    parentPet.giveBirth("joey");
+    parentPet.giveBirth("chandler");
+    parentPet.giveBirth("gunther");
+    parentPet.giveBirth();
+    parentPet.murderMyChild();
+    expect(parentPet.children.map((child) => child.name)).toEqual([
+      "joey",
+      "chandler",
+      "gunther",
+    ]);
+  });
 });
