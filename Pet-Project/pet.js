@@ -14,18 +14,22 @@ Pet.prototype = {
 if all those conditions are met it will evalutate to true but if anyone of them dont it will evaluate to false so there is no need for if/else as it can only be one or the other
 
   */
+  // Dog dies when: age > 30, hunger < 0 & fitness < 0
   get isAlive() {
-    this.isAlive = this.age < 30 && this.hunger < 10 && this.fitness > 0;
-    if (this.fitness < 0 && this.hunger > 10 && this.age > 30) {
-      return false;
-    }
+    return this.age < 30 && this.hunger < 10 && this.fitness > 0;
   },
   growUp() {
+    if (!this.isAlive) {
+      throw new Error("Your pet is no longer alive :(");
+    }
     this.age++;
     this.hunger += 5;
     this.fitness -= 3;
   },
   walk() {
+    if (!this.isAlive) {
+      throw new Error("Your pet is no longer alive :(");
+    }
     if (this.fitness > 6) {
       this.fitness = MAXIMUM_FITNESS;
     } else {
@@ -33,6 +37,9 @@ if all those conditions are met it will evalutate to true but if anyone of them 
     }
   },
   feed() {
+    if (!this.isAlive) {
+      throw new Error("Your pet is no longer alive :(");
+    }
     if (this.hunger < 3) {
       this.hunger = LOWEST_POSSIBLE_HUNGER;
     } else {
@@ -40,8 +47,9 @@ if all those conditions are met it will evalutate to true but if anyone of them 
     }
   },
   // You might need to alter this - once your tests are correct it should give you an indication as to why and what you'll need to do - plus another check will need to be added to go along with the last few tests - check if the pet is alive before going on to do the rest of the check ups
+  // Dog dies when: age > 30, hunger < 0 & fitness < 0
   checkUp() {
-    if (this.fitness <= 0 && this.age >= 30 && this.hunger >= 10) {
+    if (!this.isAlive) {
       return "Your pet is no longer alive :(";
     } else if (this.fitness <= 3 && this.hunger >= 5) {
       return "I am hungry AND I need a walk";
