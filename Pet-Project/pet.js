@@ -6,15 +6,10 @@ function Pet(name) {
   this.age = 0;
   this.hunger = LOWEST_POSSIBLE_HUNGER;
   this.fitness = MAXIMUM_FITNESS;
+  this.children = [];
 }
 
 Pet.prototype = {
-  /* a getter should always return something. in this instanct you are setting itself to a condition rather than just returning that condition. also if you think about your use of an if statement
-
-if all those conditions are met it will evalutate to true but if anyone of them dont it will evaluate to false so there is no need for if/else as it can only be one or the other
-
-  */
-  // Dog dies when: age > 30, hunger < 0 & fitness < 0
   get isAlive() {
     return this.age < 30 && this.hunger < 10 && this.fitness > 0;
   },
@@ -46,8 +41,6 @@ if all those conditions are met it will evalutate to true but if anyone of them 
       this.hunger -= 3;
     }
   },
-  // You might need to alter this - once your tests are correct it should give you an indication as to why and what you'll need to do - plus another check will need to be added to go along with the last few tests - check if the pet is alive before going on to do the rest of the check ups
-  // Dog dies when: age > 30, hunger < 0 & fitness < 0
   checkUp() {
     if (!this.isAlive) {
       return "Your pet is no longer alive :(";
@@ -60,6 +53,23 @@ if all those conditions are met it will evalutate to true but if anyone of them 
     } else {
       return "I feel great!";
     }
+  },
+  adoptChild(child) {
+    this.children.push(child);
+  },
+  giveBirth(name) {
+    const newPet = new Pet(name);
+    this.children.push(newPet);
+  },
+  tellMeYourChildrensName() {
+    // create a variable to store names
+    // cycle through children array and return the name props
+    // return names
+    const childNames = [];
+    this.children.forEach((child) => {
+      childNames.push(child.name);
+    });
+    return childNames;
   },
 };
 
