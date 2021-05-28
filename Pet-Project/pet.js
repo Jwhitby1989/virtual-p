@@ -62,9 +62,6 @@ Pet.prototype = {
     this.children.push(newPet);
   },
   tellMeYourChildrensName() {
-    // create a variable to store names
-    // cycle through children array and return the name props
-    // return names
     const childNames = [];
     this.children.forEach((child) => {
       childNames.push(child.name);

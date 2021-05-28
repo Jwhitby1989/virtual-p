@@ -195,4 +195,10 @@ describe("give birth functionality", () => {
       "gunther",
     ]);
   });
+  it("gives baby a child when called", () => {
+    parentPet.giveBirth("Bobby");
+    parentPet.giveBirth("Billy");
+    parentPet.children[1].giveBirth("Janice");
+    expect(parentPet.children[1].children[0].name).toEqual("Janice");
+  });
 });
